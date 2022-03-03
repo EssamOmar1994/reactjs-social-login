@@ -97,7 +97,7 @@ export const profileSignature = ({
     inculde_email: include_email
   }
 
-  return makeSignature(params, method, apiUrl, consumerSecret, oauthTokenSecret,inclued_email)
+  return makeSignature(params, method, apiUrl, consumerSecret, oauthTokenSecret)
 }
 
 const makeSignature = (
@@ -106,7 +106,6 @@ const makeSignature = (
   apiUrl: string,
   consumerSecret: string,
   oauthSecret = '',
-  inclued_email: boolean
 ) => {
   const paramsBaseString = Object.keys(params)
     .sort()
