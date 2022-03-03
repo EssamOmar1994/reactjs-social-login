@@ -41,7 +41,8 @@ export const accessTokenSignature = ({
   oauthToken,
   oauthVerifier,
   method,
-  apiUrl
+  apiUrl,
+  inculde_email
 }: {
   method: string
   apiUrl: string
@@ -72,7 +73,8 @@ export const profileSignature = ({
   oauthToken,
   oauthTokenSecret,
   method,
-  apiUrl
+  apiUrl,
+  inculde_email
 }: {
   method: string
   apiUrl: string
@@ -80,6 +82,7 @@ export const profileSignature = ({
   consumerSecret: string
   oauthToken: string
   oauthTokenSecret: string
+  include_email: boolean
 }) => {
   const params = {
     oauth_consumer_key: consumerKey,
@@ -90,10 +93,11 @@ export const profileSignature = ({
     oauth_signature_method: 'HMAC-SHA1',
     oauth_timestamp: (Date.now() / 1000).toFixed(),
     oauth_token: oauthToken,
-    oauth_version: '1.0'
+    oauth_version: '1.0',
+    inculde_email: include_email
   }
 
-  return makeSignature(params, method, apiUrl, consumerSecret, oauthTokenSecret)
+  return makeSignature(params, method, apiUrl, consumerSecret, oauthTokenSecret,inclued_email)
 }
 
 const makeSignature = (
@@ -101,7 +105,8 @@ const makeSignature = (
   method: string,
   apiUrl: string,
   consumerSecret: string,
-  oauthSecret = ''
+  oauthSecret = '',
+  inclued_email: boolean
 ) => {
   const paramsBaseString = Object.keys(params)
     .sort()
