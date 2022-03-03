@@ -42,7 +42,6 @@ export const accessTokenSignature = ({
   oauthVerifier,
   method,
   apiUrl,
-  inculde_email
 }: {
   method: string
   apiUrl: string
