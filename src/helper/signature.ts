@@ -73,7 +73,6 @@ export const profileSignature = ({
   oauthTokenSecret,
   method,
   apiUrl,
-  inculde_email
 }: {
   method: string
   apiUrl: string
@@ -81,7 +80,6 @@ export const profileSignature = ({
   consumerSecret: string
   oauthToken: string
   oauthTokenSecret: string
-  include_email: boolean
 }) => {
   const params = {
     oauth_consumer_key: consumerKey,
@@ -93,7 +91,7 @@ export const profileSignature = ({
     oauth_timestamp: (Date.now() / 1000).toFixed(),
     oauth_token: oauthToken,
     oauth_version: '1.0',
-    inculde_email: include_email
+    inculde_email: true
   }
 
   return makeSignature(params, method, apiUrl, consumerSecret, oauthTokenSecret)
