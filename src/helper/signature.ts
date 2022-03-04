@@ -91,7 +91,6 @@ export const profileSignature = ({
     oauth_timestamp: (Date.now() / 1000).toFixed(),
     oauth_token: oauthToken,
     oauth_version: '1.0',
-    inculde_email: true
   }
 
   return makeSignature(params, method, apiUrl, consumerSecret, oauthTokenSecret)
