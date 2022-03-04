@@ -72,7 +72,6 @@ export const LoginSocialTwitter = forwardRef(
           consumerSecret: client_secret,
           oauthToken: data.oauth_token,
           oauthTokenSecret: data.oauth_token_secret,
-          include_email: true
         })
         const url = `${PREVENT_CORS_URL}/${TWITTER_URL}/1.1/account/verify_credentials.json`
         fetch(url, {
